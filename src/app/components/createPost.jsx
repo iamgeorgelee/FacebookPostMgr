@@ -54,6 +54,7 @@ export default class CreatePostModal extends React.Component {
                     /* handle the result */
 
                     self.handleClose();
+                    self.props.callbackParent();
                   } else {
                     console.log(response.error);
                   }
