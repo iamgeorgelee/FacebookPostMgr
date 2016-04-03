@@ -9,6 +9,7 @@ import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
 import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator';
 import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 
+
 class Main extends React.Component {
   
 
@@ -16,6 +17,8 @@ class Main extends React.Component {
     super(props);
     
     this.login = this.login.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.loadPosts = this.loadPosts.bind(this);
 
     this.state = {
       login: false,
@@ -26,10 +29,18 @@ class Main extends React.Component {
 
   }
 
-  loadPosts(woww) {
+  loadPosts() {
 
-   this.setState({login:true});
-   console.log(woww)
+      var self = this;
+
+      FB.api('/silibigbug/feed', function(response) {
+                console.log(response);
+                var data = response.data;
+
+                self.setState({data: data});
+
+      });
+
   }
 
   login() {
@@ -41,20 +52,17 @@ class Main extends React.Component {
 
         if (response.authResponse) {
             console.log('Welcome!  Fetching your information.... ');
-            console.log(response); // dump complete info
-            self.setState({login:true, welcome: "Welcome", username: "George"});
+
+            FB.api('/me', function(response) {
+             console.log('Good to see you, ' + response.name + '.');
+             self.setState({login:true, welcome: "Welcome", username: response.name });
+           });
+
+
+            
 
             //self.state.token = response.authResponse.accessToken; //get access token
             // var user_id = response.authResponse.userID; //get FB UID
-
-            FB.api('/silibigbug/feed', function(response) {
-                console.log(response);
-                var data = response.data;
-
-
-                self.setState({data: data});
-
-            })
 
         } else {
             //user hit cancel button
@@ -62,26 +70,28 @@ class Main extends React.Component {
 
         }
     }, {
-        scope: 'public_profile,manage_pages,read_insights'
+        scope: 'public_profile,manage_pages,read_insights,publish_pages'
     });
   }
 
+  openModal() {
+    this.refs['modal'].handleOpen();
+  }
+
   render() {
-    // var posts = [];
-    // var data = ;
-    // for (var count in data) {
-    //   posts.push(<Post message = {data[count].message} />);
-    // }
 
     return (
         <div>
         <Toolbar>
           <ToolbarGroup firstChild={true} float="left">
-          { this.state.login ? <CreatePostModal /> : null}
-          
+
+          { this.state.login ? <FlatButton label="New Post" onTouchTap={this.openModal} /> : null}
+          { this.state.login ? <FlatButton label="All Post" onTouchTap={this.loadPosts} /> : null}
+
+          <CreatePostModal ref="modal"/> 
           </ToolbarGroup>
           <ToolbarGroup float="right">
-            <ToolbarTitle text={this.state.welcome} />
+
             <ToolbarSeparator />
             <RaisedButton label={this.state.username} primary={true} 
               onTouchTap={this.login}/>

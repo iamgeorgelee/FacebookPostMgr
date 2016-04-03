@@ -1,12 +1,9 @@
-# [Material-UI](http://callemall.github.io/material-ui/) - Example Project
-
-This is an example project that uses [Material-UI](http://callemall.github.io/material-ui/).
+# FB DEMO - Example Project
 
 ## Installation
 
 After cloning the repository, install dependencies:
 ```sh
-cd <project folder>/material-ui/examples/browserify-gulp-example
 npm install
 ```
 
@@ -14,20 +11,17 @@ Now you can run your local server:
 ```sh
 npm start
 ```
-## Description of [Gulp](https://github.com/gulpjs/gulp) Plugins
 
-### [browserify](https://github.com/substack/node-browserify)
+## User Guide
 
-Browsers do not allow us to use the require method from Node.js. With browserify, we can implement dependency management on the browser. It also will bundle the code into one file in an efficient way to not repeat dependiencies that are used more than once.
+Login via Facebook using the top right button
 
-### [browserSync](http://www.browsersync.io/)
 
-When developing and testing the website, browserSync is a powerful tool that will rebuild and refresh the webpage so you can see the changes you make as you are working.
+## Reference
 
-### markup
+Started from
+https://github.com/callemall/material-ui/tree/master/examples/browserify-gulp-example
 
-Copies all of the files from /src/www to the build folder.
+UI component
+http://www.material-ui.com/#/
 
-### [gulp_starter](https://github.com/greypants/gulp-starter)
-
-A useful repository that explains how many of gulp's features work and contains an example project to get familiar with it. We use this example to construct our own project.
