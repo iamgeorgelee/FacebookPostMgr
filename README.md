@@ -19,11 +19,11 @@ npm start
 
 1. Login via Facebook using the top right button - will ask for permission
 2. Click on "all post" to see all posts
-⋅⋅* Post contains views, message, published state & few useful links 
-⋅⋅* it shows 25 post per page
-⋅⋅* The pagination button is at the end of the page
+  * Post contains views, message, published state & few useful links 
+  * it shows 25 post per page
+  * The pagination button is at the end of the page
 3. Click on "Create post" to open a modal for creating post
-⋅⋅* User can create either published or unpublished post
+  * User can create either published or unpublished post
 
 ## Reference
 
