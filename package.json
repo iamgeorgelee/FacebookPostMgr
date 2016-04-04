@@ -10,7 +10,7 @@
     "start": "gulp"
   },
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babelify": "^7.2.0",
@@ -23,9 +23,7 @@
     "require-dir": "^0.3.0",
     "underscore": "^1.7.0",
     "vinyl-source-stream": "^1.0.0",
-    "watchify": "^3.6.1"
-  },
-  "dependencies": {
+    "watchify": "^3.6.1",
     "material-ui": "^0.15.0-alpha.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",

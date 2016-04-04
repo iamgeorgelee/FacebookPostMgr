@@ -40,6 +40,7 @@ class Post extends React.Component {
 
   render() {
 
+
     var postUrl = this.state.data.id === undefined ? undefined : "https://www.facebook.com/silibigbug/posts/" + 
       this.state.data.id.substring(this.state.data.id.indexOf('_') + 1);
 

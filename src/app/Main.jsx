@@ -26,7 +26,7 @@ class Main extends React.Component {
       login: false,
       data:[],
       welcome: "",
-      username: "Login"
+      username: "Login with Facebook"
     };
 
   }
@@ -67,6 +67,7 @@ class Main extends React.Component {
                 
       });
 
+      $('html,body').scrollTop(0);
   }
 
   login() {
@@ -108,32 +109,33 @@ class Main extends React.Component {
       };
     return (
         <div>
-        <Toolbar>
-          <ToolbarGroup firstChild={true} float="left">
+          <Toolbar>
+            <ToolbarGroup firstChild={true} float="left">
 
-          { this.state.login ? <FlatButton label="New Post" onTouchTap={this.openModal} /> : null}
-          { this.state.login ? <FlatButton label="All Post" onTouchTap={this.loadPosts} /> : null}
+            { this.state.login ? <FlatButton label="New Post" onTouchTap={this.openModal} /> : null}
+            { this.state.login ? <FlatButton label="All Post" onTouchTap={this.loadPosts} /> : null}
 
-          <CreatePostModal ref="modal" callbackParent={this.loadPosts}/> 
-          </ToolbarGroup>
-          <ToolbarGroup float="right">
+            <CreatePostModal ref="modal" callbackParent={this.loadPosts}/> 
+            </ToolbarGroup>
+            <ToolbarGroup float="right">
 
-            <ToolbarSeparator />
-            <RaisedButton label={this.state.username} primary={true} 
-              onTouchTap={this.login}/>
-          </ToolbarGroup>
-        </Toolbar>
-        {this.state.data.map(function(post) {
-          return <div><br/> <Post data = {post} /> </div>;
-        })}
-        {this.state.data.length > 0 ? <div className="right_me">
-          <RaisedButton label="Prev" secondary={true} style={style} 
-            disabled={this.state.prevDisabled} onTouchTap={this.loadPrevPosts}/> 
-          <RaisedButton label="Next" secondary={true} style={style} 
-            disabled={this.state.nextDisabled} onTouchTap={this.loadNextPosts}/> 
-         </div> 
-        : null}
-
+              <ToolbarSeparator />
+              <RaisedButton label={this.state.username} primary={true} 
+                onTouchTap={this.login} backgroundColor="#4267b2" />
+            </ToolbarGroup>
+          </Toolbar>
+          <div id="wrapper" className="centre"> 
+              {this.state.data.map(function(post) {
+                return <div key = {post.id}><br/> <Post  data = {post} /> </div>;
+              })}
+              {this.state.data.length > 0 ? <div className="right_me">
+                <RaisedButton label="Prev" secondary={true} style={style} 
+                  disabled={this.state.prevDisabled} onTouchTap={this.loadPrevPosts}/> 
+                <RaisedButton label="Next" secondary={true} style={style} 
+                  disabled={this.state.nextDisabled} onTouchTap={this.loadNextPosts}/> 
+               </div> 
+              : null}
+          </div>
         </div>
 
     )

@@ -11,3 +11,11 @@ body {
 .right_me {
 	float: right;
 }
+
+div.centre
+{
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
