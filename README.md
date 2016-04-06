@@ -1,6 +1,7 @@
 # FB DEMO - Example Project
 
-Create an application for the management of a FB Page. 
+Create an application for the management of a FB Page.
+
 I use FB javascript SDK + React + Material-UI + node.js backend
 
 ## Installation
@@ -18,24 +19,24 @@ npm start
 ## User Guide
 
 1. Login via Facebook using the top right button - will ask for permission
-2. Click on "all post" to see all posts
+2. Click on "All post" to see all posts
   * Post contains views, message, published state & few useful links 
   * it shows 25 post per page
-  * The pagination button is at the end of the page
-3. Click on "Create post" to open a modal for creating post
+  * The pagination buttons are at the end of the page
+3. Click on "New Post" to open a modal for creating post
   * User can create either published or unpublished post
 
 ## Reference
 
-Started from
+Started from:
 https://github.com/callemall/material-ui/tree/master/examples/browserify-gulp-example
 
-UI component
+UI component:
 http://www.material-ui.com/#/
 
-Graph api
+Graph api:
 https://developers.facebook.com/docs/graph-api
 
-React tutorial
+React tutorial:
 http://facebook.github.io/react/docs/tutorial.html
 

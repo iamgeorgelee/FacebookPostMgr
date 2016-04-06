@@ -9,15 +9,14 @@ class Post extends React.Component {
   
   constructor(props) {
     super(props);
-    
-    //this.render = this.render.bind(this);
 
+    //get view count through insight api
     var self = this;
     FB.api(this.props.data.id + '/insights/post_impressions', function(response) {
                           self.setState({views: response.data[0].values[0].value});
     });
 
-    /* make the API call */
+    //identifiy if published
     FB.api("/" + this.props.data.id , "GET", {fields: "is_published,link"},
         function (response) {
           if (response && !response.error) {
@@ -31,10 +30,6 @@ class Post extends React.Component {
       views: 10,
       data: {}
     };
-
-  }
-
-  getPostInsights() {
 
   }
 

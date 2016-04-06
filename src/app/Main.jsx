@@ -63,11 +63,12 @@ class Main extends React.Component {
                   alert("No more posts to show!");
                 } else {
                   self.setState({data: data, paging: response.paging});
+                  $('html,body').scrollTop(0);
                 }
                 
       });
 
-      $('html,body').scrollTop(0);
+      
   }
 
   login() {
